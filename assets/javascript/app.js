@@ -1,4 +1,4 @@
-var videoGames = ["PUBG", "Battlefield One", "Just Cause 3", "The Divison"];
+var videoGames = ["PUBG", "Battlefield One", "Call of Duty", "Skyrim", "Rainbow Six"];
 
 function displayGifInfo() {
 
@@ -10,7 +10,7 @@ function displayGifInfo() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        // Creating a div to hold the movie
+        // Creating a div to hold the gif
         var gifDiv = $("<div class='gif'>");
 
         // Storing the rating data
@@ -38,7 +38,6 @@ function displayGifInfo() {
        
 
 
-        // Appending the image
         gifDiv.append(image);
 
         // Putting the entire gif above the previous gifs
@@ -46,6 +45,43 @@ function displayGifInfo() {
         console.log(response);
     });
 
-}
+};
+function renderButtons() {
+
+   
+    $("#renderedButtons").empty();
+
+    for (var i = 0; i < videoGames.length; i++) {
+
+      var a = $("<button>");
+      // Adding a class of gif-btn to our button
+      a.addClass("gif-btn");
+      // Adding a data-attribute
+      a.attr("data-name", videoGames[i]);
+      // Providing the initial button text
+      a.text(videoGames[i]);
+      // Adding the button to the gif-view div
+      $("#renderedButtons").append(a);
+
+    }
+  }
+
+  // This function handles events where a gif button is clicked
+  $("#add-gif").on("click", function (event) {
+    event.preventDefault();
+    // This line grabs the input from the textbox
+    var gif = $("#gif-input").val().trim();
+    console.log(gif);
+    
+    videoGames.push(gif);
+
+    
+    renderButtons();
+  });
+
+  $(document).on("click", ".gif-btn", displayGifInfo);
+
+  // Calling the renderButtons function to display the intial buttons
+  renderButtons();
 
 

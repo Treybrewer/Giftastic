@@ -1,0 +1,25 @@
+body {
+    background-image: url("../../assets/images/background.jpg");
+}
+h1 {
+    color: white;
+    font-size: 350%;
+    text-align: center;
+}
+h2 {
+    color: white;
+    font-size: 250%;
+    text-align: center;
+}
+#gifsview {
+    text-align: center;
+
+}
+#renderedButtons {
+    text-align: center;
+    
+}
+#gif-form {
+    text-align: center;
+    
+}
